@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:200);
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+
+    font-family: 'Raleway', sans-serif;
+}
+
+p {
+    text-align: center;
+}
+
+.p-small {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.p-medium {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+a:link {
+    color: #FF7A20;
+}
+
+a:visited {
+    color: #57DCE8;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    margin-left: 15%;
+}
