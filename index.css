@@ -1,12 +1,25 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:200);
+@import url(https://fonts.googleapis.com/css?family=Raleway:200|Montserrat:700);
 
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
 
     font-family: 'Raleway', sans-serif;
+
+}
+
+h2 {
+    letter-spacing: 2px;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 p {
+    letter-spacing: 0.5px;
     text-align: center;
 }
 
@@ -21,7 +34,7 @@ p {
 }
 
 body {
-    background-color: #FAFAFA;
+    background-color: #CBFFFC;
 }
 
 a:link {
@@ -29,7 +42,7 @@ a:link {
 }
 
 a:visited {
-    color: #57DCE8;
+    color: #000;
 }
 
 .text-center {
