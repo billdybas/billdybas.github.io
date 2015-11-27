@@ -1,58 +1,42 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:200|Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
 
-html, button, input, select, textarea,
-.pure-g [class *= "pure-u"] {
-
-    font-family: 'Raleway', sans-serif;
-
+h1 {
+    font-family: "Muli", sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 48px;
 }
 
-h2 {
-    letter-spacing: 2px;
+h3 {
+    font-family: "Courgette", cursive;
+    font-weight: 400;
+    color: #fff;
+    font-size: 36px;
 }
 
-h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-p {
-    letter-spacing: 0.5px;
+.content {
+    display: block;
+    margin: 0 auto;
     text-align: center;
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
 }
 
-.p-small {
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
-.p-medium {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-body {
-    background-color: #CBFFFC;
-}
-
-a:link {
-    color: #FF7A20;
-}
-
-a:visited {
-    color: #000;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    margin-left: 15%;
-}
-
-.text-left-more {
-    margin-left: 30%;
+#video-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -moz-transition: opacity 1200ms ease 800ms;
+    -o-transition: opacity 1200ms ease 800ms;
+    -webkit-transition: opacity 1200ms ease 800ms;
+    transition: opacity 1200ms ease 800ms;
+    z-index: -100;
 }
