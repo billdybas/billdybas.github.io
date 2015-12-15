@@ -1,10 +1,11 @@
 (function selectVideo(){
     var videoId;
     var ids = [
-        103595267,
-        25049692,
-        85104634,
-        53434339
+        103595267, // The Asteroids Galaxy Tour - My Club
+        25049692,  // Metronomy - The Bay
+        85104634,  // Vance Joy - Riptide
+        53434339,  // Tame Impala - Feels Like We Only Go Backwards
+        85847275   // The Peach Kings - Be Around
     ];
     var video = document.getElementById('video-bg');
     videoId = ids[Math.floor(Math.random() * ids.length)];
