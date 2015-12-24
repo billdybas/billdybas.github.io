@@ -34,18 +34,16 @@ refreshButton.addEventListener("click", function(){
 var muteButton = document.getElementById("mute");
 // Mutes the audio on the video
 muteButton.addEventListener("click", function(){
-    var sound = document.getElementById("mute");
-
     if(soundState === true){
         //Unmute the Video
         player.api('setVolume', 1);
-        sound.children[0].className = "glyphicon glyphicon-volume-up";
+        muteButton.children[0].className = "glyphicon glyphicon-volume-up";
         soundState = false;
     }
     else{
         //Mute the Video
         player.api('setVolume', 0);
-        sound.children[0].className = "glyphicon glyphicon-volume-off";
+        muteButton.children[0].className = "glyphicon glyphicon-volume-off";
         soundState = true;
     }
 });
@@ -56,11 +54,13 @@ pauseButton.addEventListener("click", function(){
     if(playingState === true){
         //Play the video
         player.api('play');
+        pauseButton.children[0].className = "glyphicon glyphicon-play";
         playingState = false;
     }
     else{
         //Pause the video
         player.api('pause');
+        muteButton.children[0].className = "glyphicon glyphicon-pause";
         playingState = true;
     }
 });
