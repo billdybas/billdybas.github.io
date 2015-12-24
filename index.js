@@ -24,15 +24,13 @@ refreshButton.addEventListener("click", function(){
     _selectVideo(v);
 
     // Reset the mute button
-    if(soundState === true){
-        document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-up";
-        soundState = false;
-    }
+    document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-up";
+    soundState = false;
+
     // Reset the pause button
-    if(playingState === true){
-        document.getElementById("pause").children[0].className = "glyphicon glyphicon-pause";
-        playingState = true;
-    }
+    document.getElementById("pause").children[0].className = "glyphicon glyphicon-pause";
+    playingState = false;
+
 });
 
 var muteButton = document.getElementById("mute");
@@ -58,13 +56,13 @@ pauseButton.addEventListener("click", function(){
     if(playingState === true){
         //Play the video
         player.api('play');
-        pauseButton.children[0].className = "glyphicon glyphicon-play";
+        pauseButton.children[0].className = "glyphicon glyphicon-pause";
         playingState = false;
     }
     else{
         //Pause the video
         player.api('pause');
-        pauseButton.children[0].className = "glyphicon glyphicon-pause";
+        pauseButton.children[0].className = "glyphicon glyphicon-play";
         playingState = true;
     }
 });
