@@ -21,9 +21,6 @@ refreshButton.addEventListener("click", function(){
     }
 
     _selectVideo(v);
-    if(soundState === true){
-        player.api('setVolume', 0);
-    }
 });
 
 var muteButton = document.getElementById('mute');
@@ -56,6 +53,9 @@ function _selectVideo(ids){
     currentVideo = videoId;
     videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
     video.src = videoURL;
+    if(soundState === true){
+        player.api('setVolume', 0);
+    }
 }
 
 (function(global){
