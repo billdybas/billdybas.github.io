@@ -54,8 +54,16 @@ var pauseButton = document.getElementById("pause");
 // Pauses the video
 pauseButton.addEventListener("click", function(){
     if(playingState === true){
-        //Play the video
-        player.api('play');
+        try{
+            //Play the video
+            player.api('play');
+        }
+        catch (e){
+            var error = document.createElement("h3");
+            var errorMessage = document.createTextNode("Woops! Looks like you're using mobile browser. This site works best in a desktop browser.");
+            error.appendChild(errorMessage);
+            document.getElementById("error").appendChild(error);
+        }
         pauseButton.children[0].className = "glyphicon glyphicon-pause";
         playingState = false;
     }
