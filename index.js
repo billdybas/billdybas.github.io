@@ -1,17 +1,52 @@
-(function selectVideo(){
+var currentVideo;
+var soundState = false;
+
+var videos = [
+    103595267, // The Asteroids Galaxy Tour - My Club
+    25049692,  // Metronomy - The Bay
+    85104634,  // Vance Joy - Riptide
+    53434339,  // Tame Impala - Feels Like We Only Go Backwards
+    85847275   // The Peach Kings - Be Around
+];
+
+// Selects a video upon page load
+(function selectFirst(ids){
+    selectVideo(ids);
+})(videos);
+
+function selectVideo(ids){
     var videoId;
-    var ids = [
-        103595267, // The Asteroids Galaxy Tour - My Club
-        25049692,  // Metronomy - The Bay
-        85104634,  // Vance Joy - Riptide
-        53434339,  // Tame Impala - Feels Like We Only Go Backwards
-        85847275   // The Peach Kings - Be Around
-    ];
     var video = document.getElementById('video-bg');
     videoId = ids[Math.floor(Math.random() * ids.length)];
+    currentVideo = videoId;
     videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1";
     video.src = videoURL;
-})();
+}
+
+// Chooses another video different than the one currently playing
+function refresh(){
+    var v = [];
+    for(var i = 0; i < videos.length; i++){
+        if(videos[i] !== currentVideo){
+            v.push(videos[i]);
+        }
+    }
+    selectVideo(v);
+}
+
+// Mutes the audio on the video
+function mute(){
+    if(soundState === true){
+        //Unmute the Video
+        document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-up";
+        soundState = false;
+    }
+    else{
+        //Mute the Video
+        document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-off";
+        soundState = true;
+    }
+}
 
 (function(global){
     // Video Height & Width

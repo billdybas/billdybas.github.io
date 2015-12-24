@@ -40,3 +40,28 @@ h3 {
     transition: opacity 1200ms ease 800ms;
     z-index: -100;
 }
+
+#mute,
+#refresh {
+    background-color: rgba(255,255,255,0.5);
+    position: fixed;
+    bottom: 15px;
+}
+
+#mute:hover,
+#refresh:hover {
+    background-color: rgba(255,255,255,0.9);
+}
+
+#mute {
+    right: 15px;
+}
+
+#refresh {
+    right: 60px;
+}
+
+.glyphicon {
+    text-align: center;
+    font-size: 15px;
+}
