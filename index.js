@@ -1,6 +1,5 @@
 var currentVideo;
 var soundState = false;
-var playerState = "";
 
 var videos = [
     103595267, // The Asteroids Galaxy Tour - My Club
@@ -20,7 +19,7 @@ function selectVideo(ids){
     var video = document.getElementById('video-bg');
     videoId = ids[Math.floor(Math.random() * ids.length)];
     currentVideo = videoId;
-    videoURL = "http://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1";
+    videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
     video.src = videoURL;
 }
 
@@ -40,26 +39,24 @@ function refresh(){
 
 // Mutes the audio on the video
 function mute(){
-    // Get the iframe internals
-    var iframe = document.getElementById('video-bg');
-    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
     var sound = document.getElementById("mute");
-    if(playerState !== ""){
-        playerState += sound.className;
-    }
+    var iframe = document.getElementById("video-bg");
+    var player = $f(iframe);
 
-    if(soundState === true){
-        //Unmute the Video
-        sound.className = playerState;
-        sound.children[0].className = "glyphicon glyphicon-volume-up";
-        soundState = false;
-    }
-    else{
-        //Mute the Video
-        sound.className += "background-mode";
-        sound.children[0].className = "glyphicon glyphicon-volume-off";
-        soundState = true;
-    }
+    sound.addEvent('click', function() {
+        if(soundState === true){
+            //Unmute the Video
+            player.api('setVolume', 1);
+            sound.children[0].className = "glyphicon glyphicon-volume-up";
+            soundState = false;
+        }
+        else{
+            //Mute the Video
+            player.api('setVolume', 0);
+            sound.children[0].className = "glyphicon glyphicon-volume-off";
+            soundState = true;
+        }
+    });
 }
 
 (function(global){
