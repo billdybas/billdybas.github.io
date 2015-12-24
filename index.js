@@ -10,44 +10,44 @@ var videos = [
     85847275   // The Peach Kings - Be Around
 ];
 
+var refreshButton = document.getElementById('refresh');
+// Chooses another video different than the one currently playing
+refreshButton.addEventListener("click", function(){
+    var v = [];
+    for(var i = 0; i < videos.length; i++){
+        if(videos[i] !== currentVideo){
+            v.push(videos[i]);
+        }
+    }
+
+    _selectVideo(v);
+    if(soundState === true){
+        player.api('setVolume', 0);
+    }
+});
+
+var muteButton = document.getElementById('mute');
+// Mutes the audio on the video
+muteButton.addEventListener("click", function(){
+    var sound = document.getElementById("mute");
+
+    if(soundState === true){
+        //Unmute the Video
+        player.api('setVolume', 1);
+        sound.children[0].className = "glyphicon glyphicon-volume-up";
+        soundState = false;
+    }
+    else{
+        //Mute the Video
+        player.api('setVolume', 0);
+        sound.children[0].className = "glyphicon glyphicon-volume-off";
+        soundState = true;
+    }
+});
+
 // Selects a video upon page load
 (function _selectFirst(ids){
     _selectVideo(ids);
-
-    var refreshButton = document.getElementById('refresh');
-    // Chooses another video different than the one currently playing
-    refreshButton.addEventListener("click", function(){
-        var v = [];
-        for(var i = 0; i < videos.length; i++){
-            if(videos[i] !== currentVideo){
-                v.push(videos[i]);
-            }
-        }
-
-        _selectVideo(v);
-        if(soundState === true){
-            player.api('setVolume', 0);
-        }
-    });
-
-    var muteButton = document.getElementById('mute');
-    // Mutes the audio on the video
-    muteButton.addEventListener("click", function(){
-        var sound = document.getElementById("mute");
-
-        if(soundState === true){
-            //Unmute the Video
-            player.api('setVolume', 1);
-            sound.children[0].className = "glyphicon glyphicon-volume-up";
-            soundState = false;
-        }
-        else{
-            //Mute the Video
-            player.api('setVolume', 0);
-            sound.children[0].className = "glyphicon glyphicon-volume-off";
-            soundState = true;
-        }
-    });
 })(videos);
 
 function _selectVideo(ids){
