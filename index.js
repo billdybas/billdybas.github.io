@@ -1,6 +1,7 @@
+var video = document.getElementById('video-bg');
+var player = $f(video);
 var currentVideo;
 var soundState = false;
-
 var videos = [
     103595267, // The Asteroids Galaxy Tour - My Club
     25049692,  // Metronomy - The Bay
@@ -10,40 +11,27 @@ var videos = [
 ];
 
 // Selects a video upon page load
-(function selectFirst(ids){
-    selectVideo(ids);
-})(videos);
+(function _selectFirst(ids){
+    _selectVideo(ids);
 
-function selectVideo(ids){
-    var videoId;
-    var video = document.getElementById('video-bg');
-    videoId = ids[Math.floor(Math.random() * ids.length)];
-    currentVideo = videoId;
-    videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
-    video.src = videoURL;
-}
-
-// Chooses another video different than the one currently playing
-function refresh(){
-    var v = [];
-    for(var i = 0; i < videos.length; i++){
-        if(videos[i] !== currentVideo){
-            v.push(videos[i]);
+    var refreshButton = document.getElementById('refresh');
+    // Chooses another video different than the one currently playing
+    refreshButton.addEventListener("click", function(){
+        var v = [];
+        for(var i = 0; i < videos.length; i++){
+            if(videos[i] !== currentVideo){
+                v.push(videos[i]);
+            }
         }
-    }
-    selectVideo(v);
-    // Make sure the sound state stays the same
-    soundState = !soundState;
-    mute();
-}
 
-// Mutes the audio on the video
-function mute(){
-    var sound = document.getElementById("mute");
-    var iframe = document.getElementById("video-bg");
-    var player = $f(iframe);
+        _selectVideo(v);
+    });
 
-    sound.addEvent('click', function() {
+    var muteButton = document.getElementById('mute');
+    // Mutes the audio on the video
+    muteButton.addEventListener("click", function(){
+        var sound = document.getElementById("mute");
+
         if(soundState === true){
             //Unmute the Video
             player.api('setVolume', 1);
@@ -57,6 +45,14 @@ function mute(){
             soundState = true;
         }
     });
+})(videos);
+
+function _selectVideo(ids){
+    var videoId;
+    videoId = ids[Math.floor(Math.random() * ids.length)];
+    currentVideo = videoId;
+    videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
+    video.src = videoURL;
 }
 
 (function(global){
