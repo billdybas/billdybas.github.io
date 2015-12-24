@@ -1,5 +1,6 @@
 var currentVideo;
 var soundState = false;
+var playerState = "";
 
 var videos = [
     103595267, // The Asteroids Galaxy Tour - My Club
@@ -32,18 +33,31 @@ function refresh(){
         }
     }
     selectVideo(v);
+    // Make sure the sound state stays the same
+    soundState = !soundState;
+    mute();
 }
 
 // Mutes the audio on the video
 function mute(){
+    // Get the iframe internals
+    var iframe = document.getElementById('video-bg');
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var sound = document.getElementById("mute");
+    if(playerState !== ""){
+        playerState += sound.className;
+    }
+
     if(soundState === true){
         //Unmute the Video
-        document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-up";
+        sound.className = playerState;
+        sound.children[0].className = "glyphicon glyphicon-volume-up";
         soundState = false;
     }
     else{
         //Mute the Video
-        document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-off";
+        sound.className += "background-mode";
+        sound.children[0].className = "glyphicon glyphicon-volume-off";
         soundState = true;
     }
 }
