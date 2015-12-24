@@ -23,11 +23,15 @@ refreshButton.addEventListener("click", function(){
 
     _selectVideo(v);
 
-    // Reset the sound
+    // Reset the mute button
     if(soundState === true){
-        player.api('setVolume', 1); // Unncessary - Resetting the video url also resets the sound
         document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-up";
         soundState = false;
+    }
+    // Reset the pause button
+    if(playingState === true){
+        document.getElementById("pause").children[0].className = "glyphicon glyphicon-pause";
+        playingState = true;
     }
 });
 
@@ -60,7 +64,7 @@ pauseButton.addEventListener("click", function(){
     else{
         //Pause the video
         player.api('pause');
-        muteButton.children[0].className = "glyphicon glyphicon-pause";
+        pauseButton.children[0].className = "glyphicon glyphicon-pause";
         playingState = true;
     }
 });
