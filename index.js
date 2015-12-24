@@ -53,24 +53,17 @@ muteButton.addEventListener("click", function(){
 var pauseButton = document.getElementById("pause");
 // Pauses the video
 pauseButton.addEventListener("click", function(){
-    try{
-        if(playingState === true){
-                //Play the video
-                player.api('play');
-
-            pauseButton.children[0].className = "glyphicon glyphicon-pause";
-            playingState = false;
-        }
-        else{
-            //Pause the video
-            player.api('pause');
-            pauseButton.children[0].className = "glyphicon glyphicon-play";
-            playingState = true;
-        }
+    if(playingState === true){
+        //Play the video
+        player.api('play');
+        pauseButton.children[0].className = "glyphicon glyphicon-pause";
+        playingState = false;
     }
-    catch (e){
-        var errorMessage = "Woops! Looks like you're using mobile browser. This site works best in a desktop browser.";
-        document.getElementById("error").innerHTML = errorMessage;
+    else{
+        //Pause the video
+        player.api('pause');
+        pauseButton.children[0].className = "glyphicon glyphicon-play";
+        playingState = true;
     }
 });
 
