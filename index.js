@@ -20,7 +20,7 @@ function selectVideo(ids){
     var video = document.getElementById('video-bg');
     videoId = ids[Math.floor(Math.random() * ids.length)];
     currentVideo = videoId;
-    videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1";
+    videoURL = "http://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1";
     video.src = videoURL;
 }
 
