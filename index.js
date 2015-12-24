@@ -1,5 +1,5 @@
-var video = document.getElementById('video-bg');
-var player = $f(video);
+var video;
+var player;
 var currentVideo;
 var soundState = false;
 var videos = [
@@ -48,9 +48,13 @@ muteButton.addEventListener("click", function(){
 })(videos);
 
 function _selectVideo(ids){
+    video = document.getElementById('video-bg');
+    player = $f(video);
+
     var videoId;
     videoId = ids[Math.floor(Math.random() * ids.length)];
     currentVideo = videoId;
+
     videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
     video.src = videoURL;
     if(soundState === true){
