@@ -4,14 +4,14 @@ h1 {
     font-family: "Muli", sans-serif;
     font-weight: 400;
     color: #fff;
-    font-size: 48px;
+    font-size: 3em;
 }
 
 h3 {
     font-family: "Courgette", cursive;
     font-weight: 400;
     color: #fff;
-    font-size: 36px;
+    font-size: 2em;
 }
 
 .content {
@@ -56,7 +56,7 @@ h3 {
 #refresh {
     background-color: rgba(255,255,255,0.5);
     position: fixed;
-    bottom: 15px;
+    bottom: 2em;
 }
 
 #pause:hover,
@@ -66,18 +66,18 @@ h3 {
 }
 
 #pause {
-    right: 15px;
+    right: 2em;
 }
 
 #mute {
-    right: 60px;
+    right: 5.5em;
 }
 
 #refresh {
-    right: 105px;
+    right: 9em;
 }
 
 .glyphicon {
     text-align: center;
-    font-size: 15px;
+    font-size: 1em;
 }
