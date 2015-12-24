@@ -2,6 +2,7 @@ var video;
 var player;
 var currentVideo;
 var soundState = false;
+var playingState = false;
 var videos = [
     103595267, // The Asteroids Galaxy Tour - My Club
     25049692,  // Metronomy - The Bay
@@ -10,7 +11,7 @@ var videos = [
     85847275   // The Peach Kings - Be Around
 ];
 
-var refreshButton = document.getElementById('refresh');
+var refreshButton = document.getElementById("refresh");
 // Chooses another video different than the one currently playing
 refreshButton.addEventListener("click", function(){
     var v = [];
@@ -21,16 +22,16 @@ refreshButton.addEventListener("click", function(){
     }
 
     _selectVideo(v);
-    
+
     // Reset the sound
     if(soundState === true){
         player.api('setVolume', 1); // Unncessary - Resetting the video url also resets the sound
-        sound.children[0].className = "glyphicon glyphicon-volume-up";
+        document.getElementById("mute").children[0].className = "glyphicon glyphicon-volume-up";
         soundState = false;
     }
 });
 
-var muteButton = document.getElementById('mute');
+var muteButton = document.getElementById("mute");
 // Mutes the audio on the video
 muteButton.addEventListener("click", function(){
     var sound = document.getElementById("mute");
@@ -49,13 +50,28 @@ muteButton.addEventListener("click", function(){
     }
 });
 
+var pauseButton = document.getElementById("pause");
+// Pauses the video
+pauseButton.addEventListener("click", function(){
+    if(playingState === true){
+        //Play the video
+        player.api('play');
+        playingState = false;
+    }
+    else{
+        //Pause the video
+        player.api('pause');
+        playingState = true;
+    }
+});
+
 // Selects a video upon page load
 (function _selectFirst(ids){
     _selectVideo(ids);
 })(videos);
 
 function _selectVideo(ids){
-    video = document.getElementById('video-bg');
+    video = document.getElementById("video-bg");
     player = $f(video);
 
     var videoId;
@@ -82,7 +98,7 @@ function _selectVideo(ids){
 
     var documentEl = document.documentElement;
 
-    var video = document.getElementById('video-bg');
+    var video = document.getElementById("video-bg");
 
     // Resize the Video
     function resizeVideo(){
@@ -112,7 +128,7 @@ function _selectVideo(ids){
       resizeVideo();
     }
 
-    global.addEventListener('resize', onWindowResize);
+    global.addEventListener("resize", onWindowResize);
 
     resizeVideo();
 })(window);
