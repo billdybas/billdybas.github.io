@@ -25,6 +25,9 @@ var videos = [
         }
 
         _selectVideo(v);
+        if(soundState === true){
+            player.api('setVolume', 0);
+        }
     });
 
     var muteButton = document.getElementById('mute');
