@@ -21,6 +21,13 @@ refreshButton.addEventListener("click", function(){
     }
 
     _selectVideo(v);
+    
+    // Reset the sound
+    if(soundState === true){
+        player.api('setVolume', 1); // Unncessary - Resetting the video url also resets the sound
+        sound.children[0].className = "glyphicon glyphicon-volume-up";
+        soundState = false;
+    }
 });
 
 var muteButton = document.getElementById('mute');
@@ -57,9 +64,6 @@ function _selectVideo(ids){
 
     videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
     video.src = videoURL;
-    if(soundState === true){
-        player.api('setVolume', 0);
-    }
 }
 
 (function(global){
