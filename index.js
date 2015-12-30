@@ -21,7 +21,7 @@ function _selectVideo(ids){
     video.src = videoURL;
 }
 
-$(document).ready(function(player){
+$(document).ready(function(){
     _selectVideo(videos);
 
     // Chooses another video different than the one currently playing
@@ -41,7 +41,7 @@ $(document).ready(function(player){
     });
 
     // Mutes the audio on the video
-    $('#mute').click(function(player){
+    $('#mute').click(function(){
         if(player.api('getVolume') === 0){
             //Unmute the Video
             player.api('setVolume', 1);
@@ -52,10 +52,10 @@ $(document).ready(function(player){
             player.api('setVolume', 0);
             document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
         }
-    }(player));
+    });
 
     // Pauses the video
-    $('#pause').click(function(player){
+    $('#pause').click(function(){
         if(player.api('paused') === true){
             //Play the video
             player.api('play');
@@ -66,8 +66,8 @@ $(document).ready(function(player){
             player.api('pause');
             document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
         }
-    }(player));
-}(player));
+    });
+});
 
 (function(global){
     // Video Height & Width
