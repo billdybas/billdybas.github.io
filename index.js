@@ -43,11 +43,11 @@ $(document).ready(function(){
         _selectVideo(v);
 
         // Reset the mute button
-        $('#mute').children[0].className = "glyphicon glyphicon-volume-up";
+        document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
         soundState = false;
 
         // Reset the pause button
-        $('#pause').children[0].className = "glyphicon glyphicon-pause";
+        document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
         playingState = false;
     });
 
@@ -56,13 +56,13 @@ $(document).ready(function(){
         if(soundState === true){
             //Unmute the Video
             player.api('setVolume', 1);
-            $('#mute').children[0].className = "glyphicon glyphicon-volume-up";
+            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
             soundState = false;
         }
         else{
             //Mute the Video
             player.api('setVolume', 0);
-            $('#mute').children[0].className = "glyphicon glyphicon-volume-off";
+            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
             soundState = true;
         }
     });
@@ -72,13 +72,13 @@ $(document).ready(function(){
         if(playingState === true){
             //Play the video
             player.api('play');
-            $('#pause').children[0].className = "glyphicon glyphicon-pause";
+            document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
             playingState = false;
         }
         else{
             //Pause the video
             player.api('pause');
-            $('#pause').children[0].className = "glyphicon glyphicon-play";
+            document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
             playingState = true;
         }
     });
