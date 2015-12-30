@@ -18,7 +18,7 @@ $(document).ready(function(){
     }
 
     function _selectVideo(ids){
-        video = document.getElementById('video-bg');
+        video = $('#video-bg');
         player = $f(video);
 
         var videoId;
@@ -46,7 +46,7 @@ $(document).ready(function(){
     });
 
     // Mutes the audio on the video
-    $('#mute').click(function(){
+    $('#mute').click(function(player){
         if(player.api('getVolume') === 0){
             //Unmute the Video
             player.api('setVolume', 1);
@@ -57,10 +57,10 @@ $(document).ready(function(){
             player.api('setVolume', 0);
             document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
         }
-    });
+    }(player));
 
     // Pauses the video
-    $('#pause').click(function(){
+    $('#pause').click(function(player){
         if(player.api('paused') === true){
             //Play the video
             player.api('play');
@@ -71,7 +71,7 @@ $(document).ready(function(){
             player.api('pause');
             document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
         }
-    });
+    }(player));
 });
 
 (function(global){
