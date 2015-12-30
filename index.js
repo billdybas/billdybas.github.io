@@ -10,7 +10,7 @@ var videos = [
 ];
 
 function _selectVideo(ids){
-    video = $('#video-bg');
+    video = document.getElementById('video-bg');
     player = $f(video);
 
     var videoId;
