@@ -9,6 +9,10 @@ var videos = [
     85847275   // The Peach Kings - Be Around
 ];
 
+$(document).ready(function(){
+    player.addEvent('ready', ready);
+});
+
 function _selectVideo(ids){
     video = document.getElementById('video-bg');
     player = $f(video);
@@ -21,7 +25,7 @@ function _selectVideo(ids){
     video.src = videoURL;
 }
 
-$(document).ready(function(){
+function ready(){
     _selectVideo(videos);
 
     // Chooses another video different than the one currently playing
