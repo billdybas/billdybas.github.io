@@ -77,7 +77,7 @@ function ready(){
             console.log(value);
         });
     });
-});
+}
 
 (function(global){
     // Video Height & Width
