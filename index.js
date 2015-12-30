@@ -42,30 +42,34 @@ $(document).ready(function(){
 
     // Mutes the audio on the video
     $('#mute').click(function(){
-        if(player.api('getVolume') === 0){
-            //Unmute the Video
-            player.api('setVolume', 1);
-            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
-        }
-        else if(player.api('getVolume') === 1){
-            //Mute the Video
-            player.api('setVolume', 0);
-            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
-        }
+        player.api('getVolume', function(volume){
+            if(volume === 0){
+                //Unmute the Video
+                player.api('setVolume', 1);
+                document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
+            }
+            else if(volume === 1){
+                //Mute the Video
+                player.api('setVolume', 0);
+                document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
+            }
+        });
     });
 
     // Pauses the video
     $('#pause').click(function(){
-        if(player.api('paused') === true){
-            //Play the video
-            player.api('play');
-            document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
-        }
-        else if(player.api('paused') === false){
-            //Pause the video
-            player.api('pause');
-            document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
-        }
+        player.api('paused', function(paused){
+            if(paused === true){
+                //Play the video
+                player.api('play');
+                document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+            }
+            else if(paused === false){
+                //Pause the video
+                player.api('pause');
+                document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
+            }
+        });
     });
 });
 
