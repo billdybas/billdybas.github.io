@@ -1,8 +1,6 @@
 var video;
 var player;
 var currentVideo;
-var soundState = false;
-var playingState = false;
 var videos = [
     103595267, // The Asteroids Galaxy Tour - My Club
     25049692,  // Metronomy - The Bay
@@ -44,42 +42,36 @@ $(document).ready(function(){
 
         // Reset the mute button
         document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
-        soundState = false;
 
         // Reset the pause button
         document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
-        playingState = false;
     });
 
     // Mutes the audio on the video
     $('#mute').click(function(){
-        if(soundState === true){
+        if(player.api('getVolume' !== 1)){
             //Unmute the Video
             player.api('setVolume', 1);
             document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
-            soundState = false;
         }
-        else{
+        else if(player.api('getVolume' !== 0)){
             //Mute the Video
             player.api('setVolume', 0);
             document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
-            soundState = true;
         }
     });
 
     // Pauses the video
     $('#pause').click(function(){
-        if(playingState === true){
+        if(player.api('paused')){
             //Play the video
             player.api('play');
             document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
-            playingState = false;
         }
         else{
             //Pause the video
             player.api('pause');
             document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
-            playingState = true;
         }
     });
 });
