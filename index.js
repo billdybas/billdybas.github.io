@@ -1,33 +1,35 @@
+var video;
+var player;
+var currentVideo;
+var soundState = false;
+var playingState = false;
+var videos = [
+    103595267, // The Asteroids Galaxy Tour - My Club
+    25049692,  // Metronomy - The Bay
+    85104634,  // Vance Joy - Riptide
+    53434339,  // Tame Impala - Feels Like We Only Go Backwards
+    85847275   // The Peach Kings - Be Around
+];
+
+// Selects a video upon page load
+function _selectFirst(ids){
+    _selectVideo(ids);
+}
+
+function _selectVideo(ids){
+    video = document.getElementById('video-bg');
+    player = $f(video);
+
+    var videoId;
+    videoId = ids[Math.floor(Math.random() * ids.length)];
+    currentVideo = videoId;
+
+    videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
+    video.src = videoURL;
+}
+
 $(document).ready(function(){
-    var video;
-    var player;
-    var currentVideo;
-    var soundState = false;
-    var playingState = false;
-    var videos = [
-        103595267, // The Asteroids Galaxy Tour - My Club
-        25049692,  // Metronomy - The Bay
-        85104634,  // Vance Joy - Riptide
-        53434339,  // Tame Impala - Feels Like We Only Go Backwards
-        85847275   // The Peach Kings - Be Around
-    ];
-
-    // Selects a video upon page load
-    (function _selectFirst(ids){
-        _selectVideo(ids);
-    })(videos);
-
-    function _selectVideo(ids){
-        video = $('#video-bg');
-        player = $f(video);
-
-        var videoId;
-        videoId = ids[Math.floor(Math.random() * ids.length)];
-        currentVideo = videoId;
-
-        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
-        video.src = videoURL;
-    }
+    _selectFirst(videos);
 
     // Chooses another video different than the one currently playing
     $('#refresh').click(function(){
