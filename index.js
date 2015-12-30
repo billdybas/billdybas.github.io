@@ -53,6 +53,7 @@ $(document).ready(function(){
                 player.api('setVolume', 0);
                 document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
             }
+            console.log(volume);
         });
     });
 
@@ -69,6 +70,7 @@ $(document).ready(function(){
                 player.api('pause');
                 document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
             }
+            console.log(paused);
         });
     });
 });
