@@ -37,42 +37,42 @@ $(document).ready(function(){
                 v.push(videos[i]);
             }
         }
-
         _selectVideo(v);
 
         // Reset the mute button
         document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
-
         // Reset the pause button
         document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
     });
 
-    // Mutes the audio on the video
-    $('#mute').click(function(){
-        if(player.api('getVolume' !== 1)){
-            //Unmute the Video
-            player.api('setVolume', 1);
-            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
-        }
-        else if(player.api('getVolume' !== 0)){
-            //Mute the Video
-            player.api('setVolume', 0);
-            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
-        }
-    });
+    player.addEvent('ready', function() {
+        // Mutes the audio on the video
+        $('#mute').click(function(){
+            if(player.api('getVolume') === 0){
+                //Unmute the Video
+                player.api('setVolume', 1);
+                document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
+            }
+            else if(player.api('getVolume') === 1){
+                //Mute the Video
+                player.api('setVolume', 0);
+                document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
+            }
+        });
 
-    // Pauses the video
-    $('#pause').click(function(){
-        if(player.api('paused')){
-            //Play the video
-            player.api('play');
-            document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
-        }
-        else{
-            //Pause the video
-            player.api('pause');
-            document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
-        }
+        // Pauses the video
+        $('#pause').click(function(){
+            if(player.api('paused') === true){
+                //Play the video
+                player.api('play');
+                document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+            }
+            else{
+                //Pause the video
+                player.api('pause');
+                document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
+            }
+        });
     });
 });
 
