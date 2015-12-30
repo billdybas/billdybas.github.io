@@ -1,33 +1,33 @@
-var video;
-var player;
-var currentVideo;
-var videos = [
-    103595267, // The Asteroids Galaxy Tour - My Club
-    25049692,  // Metronomy - The Bay
-    85104634,  // Vance Joy - Riptide
-    53434339,  // Tame Impala - Feels Like We Only Go Backwards
-    85847275   // The Peach Kings - Be Around
-];
-
-// Selects a video upon page load
-function _selectFirst(ids){
-    _selectVideo(ids);
-}
-
-function _selectVideo(ids){
-    video = document.getElementById('video-bg');
-    player = $f(video);
-
-    var videoId;
-    videoId = ids[Math.floor(Math.random() * ids.length)];
-    currentVideo = videoId;
-
-    videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
-    video.src = videoURL;
-}
-
 $(document).ready(function(){
+    var video;
+    var player;
+    var currentVideo;
+    var videos = [
+        103595267, // The Asteroids Galaxy Tour - My Club
+        25049692,  // Metronomy - The Bay
+        85104634,  // Vance Joy - Riptide
+        53434339,  // Tame Impala - Feels Like We Only Go Backwards
+        85847275   // The Peach Kings - Be Around
+    ];
+
     _selectFirst(videos);
+
+    // Selects a video upon page load
+    function _selectFirst(ids){
+        _selectVideo(ids);
+    }
+
+    function _selectVideo(ids){
+        video = document.getElementById('video-bg');
+        player = $f(video);
+
+        var videoId;
+        videoId = ids[Math.floor(Math.random() * ids.length)];
+        currentVideo = videoId;
+
+        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
+        video.src = videoURL;
+    }
 
     // Chooses another video different than the one currently playing
     $('#refresh').click(function(){
@@ -45,34 +45,32 @@ $(document).ready(function(){
         document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
     });
 
-    player.addEvent('ready', function() {
-        // Mutes the audio on the video
-        $('#mute').click(function(){
-            if(player.api('getVolume') === 0){
-                //Unmute the Video
-                player.api('setVolume', 1);
-                document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
-            }
-            else if(player.api('getVolume') === 1){
-                //Mute the Video
-                player.api('setVolume', 0);
-                document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
-            }
-        });
+    // Mutes the audio on the video
+    $('#mute').click(function(){
+        if(player.api('getVolume') === 0){
+            //Unmute the Video
+            player.api('setVolume', 1);
+            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
+        }
+        else if(player.api('getVolume') === 1){
+            //Mute the Video
+            player.api('setVolume', 0);
+            document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-off";
+        }
+    });
 
-        // Pauses the video
-        $('#pause').click(function(){
-            if(player.api('paused') === true){
-                //Play the video
-                player.api('play');
-                document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
-            }
-            else{
-                //Pause the video
-                player.api('pause');
-                document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
-            }
-        });
+    // Pauses the video
+    $('#pause').click(function(){
+        if(player.api('paused') === true){
+            //Play the video
+            player.api('play');
+            document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+        }
+        else{
+            //Pause the video
+            player.api('pause');
+            document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
+        }
     });
 });
 
