@@ -9,15 +9,11 @@ var videos = [
     85847275   // The Peach Kings - Be Around
 ];
 
-$(document).ready(function(){
-    var video = document.getElementById('video-bg');
-    var player = $f(video);
-    player.addEvent('ready', ready);
-});
+_selectVideo(videos);
+player.addEvent('ready', ready);
 
 function _selectVideo(ids){
     video = document.getElementById('video-bg');
-    player = $f(video);
 
     var videoId;
     videoId = ids[Math.floor(Math.random() * ids.length)];
@@ -25,10 +21,11 @@ function _selectVideo(ids){
 
     videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
     video.src = videoURL;
+    
+    player = $f(video);
 }
 
 function ready(){
-    _selectVideo(videos);
 
     // Chooses another video different than the one currently playing
     $('#refresh').click(function(){
