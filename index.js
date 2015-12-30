@@ -10,6 +10,8 @@ var videos = [
 ];
 
 $(document).ready(function(){
+    var video = document.getElementById('video-bg');
+    var player = $f(video);
     player.addEvent('ready', ready);
 });
 
