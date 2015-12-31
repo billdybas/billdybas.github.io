@@ -21,7 +21,7 @@ $(function(){
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
+        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1&player_id=video-bg";
         video.src = videoURL;
 
         // Set up Vimeo API - Froogaloop
@@ -65,8 +65,8 @@ $(function(){
 
     // Pauses the video
     function _pause(){
-        var pause = $('#pause')[0];
-        if(paused === true){
+        //var pause = $('#pause')[0];
+        if(player.api('paused') === true){
             //Play the video
             player.api('play');
             pause.children[0].className = "glyphicon glyphicon-pause";
