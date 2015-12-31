@@ -64,7 +64,7 @@ $(function(){
     }
 
     // Pauses the video
-    function _pause(){
+    function _pause(player){
         //var pause = $('#pause')[0];
         if(player.api('paused') === true){
             //Play the video
@@ -83,7 +83,7 @@ $(function(){
     _selectVideo(videos);
     $('#refresh').click(_refresh);
     $('#mute').click(_mute);
-    $('#pause').click(_pause);
+    $('#pause').click(_pause(player));
 });
 
 (function(global){
