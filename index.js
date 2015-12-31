@@ -1,4 +1,4 @@
-$(document).ready({
+$(function(){
     // Vimeo Video Ids
     var videos = [
         103595267, // The Asteroids Galaxy Tour - My Club
