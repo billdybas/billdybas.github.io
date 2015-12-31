@@ -54,9 +54,9 @@ $(function(){
 
     _selectVideo(videos);
     player.addEvent('ready', function(){
-        $('#refresh').click(_refresh());
-        $('#mute').click(_mute());
-        $('#pause').click(_pause());
+        $('#refresh').click(_refresh);
+        $('#mute').click(_mute);
+        $('#pause').click(_pause);
     });
 });
 
