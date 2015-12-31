@@ -21,7 +21,7 @@ $(function(){
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        videoURL = encodeURI("https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1&player_id=video-bg");
+        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
         video.src = videoURL;
 
         // Set up Vimeo API - Froogaloop
@@ -64,9 +64,9 @@ $(function(){
     }
 
     // Pauses the video
-    function _pause(player){
-        //var pause = $('#pause')[0];
-        if(player.api('paused') === true){
+    function _pause(){
+        var pause = $('#pause')[0];
+        if(paused === true){
             //Play the video
             player.api('play');
             pause.children[0].className = "glyphicon glyphicon-pause";
@@ -83,7 +83,7 @@ $(function(){
     _selectVideo(videos);
     $('#refresh').click(_refresh);
     $('#mute').click(_mute);
-    $('#pause').click(_pause(player));
+    $('#pause').click(_pause);
 });
 
 (function(global){
