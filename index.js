@@ -10,6 +10,7 @@ $(function(){
 
     var player;
     var currentVideo;
+    var muted = false;
     var paused = false;
 
     function _selectVideo(ids){
@@ -38,29 +39,43 @@ $(function(){
         _selectVideo(v);
 
         // Reset the mute button
-        document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
+        $('#mute')[0].children[0].className = "glyphicon glyphicon-volume-up";
+        muted = false;
         // Reset the pause button
-        document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+        $('#pause')[0].children[0].className = "glyphicon glyphicon-pause";
         paused = false;
     }
 
     // Mutes the audio on the video
     function _mute(){
-        console.log('Working - Mute');
+        var mute = $('#mute')[0];
+        if(muted === true){
+            //Unmute the Video
+            player.api('setVolume', 1);
+            mute.children[0].className = "glyphicon glyphicon-volume-up";
+            muted = false;
+        }
+        else{
+            //Mute the Video
+            player.api('setVolume', 0);
+            mute.children[0].className = "glyphicon glyphicon-volume-off";
+            muted = true;
+        }
     }
 
     // Pauses the video
     function _pause(){
+        var pause = $('#pause')[0];
         if(paused === true){
             //Play the video
             player.api('play');
-            document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+            pause.children[0].className = "glyphicon glyphicon-pause";
             paused = false;
         }
-        else if(paused === false){
+        else{
             //Pause the video
             player.api('pause');
-            document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
+            pause.children[0].className = "glyphicon glyphicon-play";
             paused = true;
         }
     }
