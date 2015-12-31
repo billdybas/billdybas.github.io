@@ -54,6 +54,7 @@ $(function(){
 
     _selectVideo(videos);
     player.addEvent('ready', function(){
+        console.log('ready');
         $('#refresh').click(_refresh);
         $('#mute').click(_mute);
         $('#pause').click(_pause);
