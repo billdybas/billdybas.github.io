@@ -49,14 +49,27 @@ $(function(){
 
     // Pauses the video
     function _pause(){
-        console.log('Working - Pause');
+        var paused = player.api('paused');
+        if(paused === true){
+            //Play the video
+            player.api('play');
+            document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+        }
+        else if(paused === false){
+            //Pause the video
+            player.api('pause');
+            document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
+        }
+        else{
+            // paused is not being given a boolean; see what it is
+            console.log(paused);
+        }
     }
 
     _selectVideo(videos);
     $('#refresh').click(_refresh);
     $('#mute').click(_mute);
     $('#pause').click(_pause);
-
 });
 
 (function(global){
