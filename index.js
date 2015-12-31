@@ -10,6 +10,7 @@ $(function(){
 
     var player;
     var currentVideo;
+    var paused = false;
 
     function _selectVideo(ids){
         // Pick a random Vimeo Video Id
@@ -40,6 +41,7 @@ $(function(){
         document.getElementById('mute').children[0].className = "glyphicon glyphicon-volume-up";
         // Reset the pause button
         document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+        paused = false;
     }
 
     // Mutes the audio on the video
@@ -49,21 +51,17 @@ $(function(){
 
     // Pauses the video
     function _pause(){
-        var paused = player.api('paused');
-        console.log(paused);
-        if(paused() === true){
+        if(paused === true){
             //Play the video
             player.api('play');
             document.getElementById('pause').children[0].className = "glyphicon glyphicon-pause";
+            paused = false;
         }
-        else if(paused() === false){
+        else if(paused === false){
             //Pause the video
             player.api('pause');
             document.getElementById('pause').children[0].className = "glyphicon glyphicon-play";
-        }
-        else{
-            // paused is not being given a boolean; see what it is
-            console.log(paused());
+            paused = true;
         }
     }
 
