@@ -21,7 +21,7 @@ $(function(){
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1&player_id=video-bg";
+        videoURL = encodeURI("https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1&player_id=video-bg");
         video.src = videoURL;
 
         // Set up Vimeo API - Froogaloop
