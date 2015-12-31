@@ -52,7 +52,7 @@ $(function(){
         console.log('Working - Pause');
     }
 
-    _selectVideo(ids);
+    _selectVideo(videos);
     player.addEvent('ready', function(){
         $('#refresh').click(_refresh());
         $('#mute').click(_mute());
