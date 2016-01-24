@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.heading,
+#project-description {
+    text-align: center;
+}
+
+.project-url {
+    text-decoration: none;
+    color: #000000;
+}
+
+.project-url:hover {
+    text-decoration: underline;
+}
+
+.project-url:visited {
+    color: #696969;
+}
+
+#project-image {
+    display: block;
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+}
