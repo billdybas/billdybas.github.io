@@ -16,6 +16,18 @@ h3 {
     font-weight: 400;
 }
 
+li {
+    color: #fff;
+    font-family: "Muli", sans-serif;
+    font-size: 1.25em;
+    font-weight: 400;
+    list-style: none;
+}
+
+li a,
+li a:visited {
+    color: #fff;
+}
 
 /* CONTENT SECTION */
 
@@ -29,6 +41,23 @@ h3 {
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+
+.navigation {
+    border-top: 0.25em solid #fff;
+    max-width: 33.3333%;
+    margin: 0 auto;
+    padding: 0 0;
+}
+
+.navigation li {
+    display: inline-block;
+    margin: 0.5em 0.5em;
+    padding: 0.5em;
+}
+
+.navigation li a {
+    padding: 0.5em;
 }
 
 

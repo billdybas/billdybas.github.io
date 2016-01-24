@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
+
+/* FONTS */
+
+h1 {
+    color: #ff6175;
+    font-family: "Courgette", cursive;
+    font-size: 4em;
+    font-weight: 400;
+}
+
+h2 {
+    color: #73c9ce;
+    font-family: "Muli", sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+h3 {
+    color: #73c9ce;
+    font-family: "Muli", sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+p {
+    color: #2a3232;
+    font-size: 1.15em;
+}
+
+h1, h2, h3, p {
+     text-align: center;
+}
+
+.rit {
+    color: #FF7A20;
+}
+
+.rit:visited {
+    color: #000;
+}
+
+
+/* POSITION */
+
+.title {
+    margin-bottom: 1em;
+}
+
+.box p {
+    padding: 0 0 1.5em 0;
+    display: block;
+    margin: 0 auto;
+    max-width: 75%;
+}
+
+.img-md {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+}
+
+.rounded {
+    border-radius: 5%;
+}
+
+
+/* FOOTER */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6em;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    background-color: #ff6175;
+}
+
+footer ul {
+    list-style: none;
+    text-align: center;
+}
+
+footer li {
+    display: inline-block;
+    padding: 10px 10px;
+}
+
+footer a,
+footer a:hover,
+footer a:visited {
+    font-size: 1.15em;
+    color: #fff;
+}

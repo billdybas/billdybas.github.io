@@ -2,116 +2,56 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Projects | Bill Dybas</title>
 
-		<title>Bill Dybas | Projects</title>
-
-		<!-- Pure CSS Framework -->
-		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-		<!--[if lte IE 8]>
-    		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-		<![endif]-->
-		<!--[if gt IE 8]><!-->
-    		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-		<!--<![endif]-->
-
-		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+			integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+			crossorigin="anonymous">
+		<link rel="stylesheet" href="../main.css">
 	</head>
 	<body>
-		<div class="pure-g">
-			<div class="pure-u-1">
-				<p class="p-medium">I'm Bill, a 3rd year Software Engineer studying
-					at the <a href="http://www.rit.edu">Rochester Institute of Technology.</a>
-				</p>
-				<p class="p-medium">Here, you'll find a list of projects I'm working on or
-					have worked on in the past. Enjoy.
-				</p>
+		<div class="container">
+			<div class="row">
+				<h1 class="title">Projects</h1>
+				<div class="col col-xs-12 col-sm-6 col-md-4 box">
+					<img src="../img/question.png" class="img-md">
+					<h2>Secret Project #1</h2>
+					<p>It wouldn't be a secret if I told you.</p>
+				</div>
+				<div class="col col-xs-12 col-sm-6 col-md-4 box">
+					<img src="../img/question.png" class="img-md">
+					<h2>Secret Project #2</h2>
+					<p>It wouldn't be a secret if I told you.</p>
+				</div>
+				<div class="col col-xs-12 col-sm-6 col-md-4 box">
+					<a href="https://github.com/BillDybas/SimpleShowcase"><img src="../img/simple.png" class="img-md"></a>
+					<h2>Simple Showcase</h2>
+					<p>A simple static site generator centered around a GitHub project.</p>
+				</div>
+				<div class="col col-xs-12 col-sm-6 col-md-4 box">
+					<img src="../img/sql.jpg" class="img-md rounded">
+					<h2>Fuzzer</h2>
+					<p>A web application fuzz testing tool for detecting potential vulnerabilities like SQL Injection or Cross-site Scripting.</p>
+				</div>
+				<div class="col col-xs-12 col-sm-6 col-md-4 box">
+					<img src="../img/market.png" class="img-md">
+					<h2>Financial Portfolio Tracker</h2>
+					<p>A client application which lets a user track various stocks, bonds, and mutual-funds and run simulations on their expected growth. Prices are updated in real-time from the Yahoo Finance web service.</p>
+				</div>
+				<div class="col col-xs-12 col-sm-6 col-md-4 box">
+					<img src="../img/hospital.png" class="img-md">
+					<h2>HealthNet</h2>
+					<p>A web application that allows patients and doctors to update medical information, schedule appointments, and send messages.</p>
+				</div>
 			</div>
 		</div>
-		<div class="pure-g">
-			<div class="pure-u-1">
-				<h2 class="text-left">CURRENTLY:</h2>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-center">Secret Project #1</h4>
-				<p class="p-small">It wouldn't be a secret if I told you.</p>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-center">Secret Project #2</h4>
-				<p class="p-small">It wouldn't be a secret if I told you.</p>
-			</div>
-		</div>
-		<br><br>
-		<div class="pure-g">
-			<div class="pure-u-1">
-				<h2 class="text-left">PREVIOUSLY:</h2>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-center">Financial Portfolio Tracker</h4>
-				<p class="p-small">A client application which lets a user
-					track various stocks, bonds, and mutual-funds
-					and run simulations on their expected growth.
-					Prices are updated in real-time from the
-					Yahoo Finance web service.
-				</p>
-				<p class="p-small">[Java, JavaFX]</p>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-center">Fuzzer</h4>
-				<p class="p-small">A web application fuzz testing
-					tool for detecting potential vulnerabilities
-					like SQL Injection or Cross-site Scripting.
-				</p>
-				<p class="p-small">[Python, BeautifulSoup, Requests, Click]</p>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-center">HealthNet</h4>
-				<p class="p-small">A web application that allows patients
-					and doctors to update medical information, schedule
-					appointments, and send messages.
-				</p>
-				<p class="p-small">[Django, Python, HTML / CSS, Bootstrap, JavaScript]</p>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-center">Cellar</h4>
-				<p class="p-small">A GUI-based dungeon-crawler game.
-					Explore an old cellar for the lost amulet,
-					but beware of the danger awaiting below.</p>
-				<p class="p-small">[Java]</p>
-			</div>
-		</div>
-		<br><br>
-		<div class="pure-g">
-			<div class="pure-u-1">
-				<h2 class="text-left">LANGUAGES &amp; FRAMEWORKS:</h2>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-left-more">What I've Used</h4>
-				<ul class="text-left-more">
-					<li>Java</li>
-					<li>Python &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Django, BeautifulSoup, Requests, Click)</li>
-					<li>HTML / CSS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Bootstrap, Pure)</li>
-					<li>JavaScript</li>
-					<li>C</li>
-					<li>Ruby</li>
-				</ul>
-			</div>
-			<div class="pure-u-1 pure-u-md-1-2">
-				<h4 class="text-left-more">What I Want to Use</h4>
-				<ul class="text-left-more">
-					<li>JavaScript</li>
-					<li>PHP</li>
-					<li>Node</li>
-					<li>Meteor</li>
-					<li>Backbone</li>
-					<li>React</li>
-					<li>WebGL</li>
-					<li>Scala</li>
-					<li>Go</li>
-					<li>Sass / Less</li>
-					<li>iOS (Swift) &amp; Android</li>
-				</ul>
-			</div>
-		</div>
+		<footer>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/projects/">Projects</a></li>
+			</ul>
+		</footer>
 	</body>
 </html>
