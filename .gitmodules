@@ -1,0 +1,3 @@
+[submodule "projects/clock"]
+	path = projects/clock
+	url = https://github.com/BillDybas/PictureClock
