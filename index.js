@@ -27,7 +27,7 @@ $(function() {
         },
         {
           id: 147173661, // Tame Impala - The Less I Know The Better
-          start: 0
+          start: 80
         },
         {
           id: 85847275,  // The Peach Kings - Be Around
@@ -38,7 +38,7 @@ $(function() {
     var player;
     var currentVideo;
     var muted = false;
-    var paused = false;
+    var playing = true;
 
     function _selectVideo(videos) {
         // Pick a random Vimeo Video Id
@@ -54,6 +54,11 @@ $(function() {
         player.api('seekTo', v.start);
     }
 
+    // Removes and Adds CSS Classes to an Element
+    function _toggleClass(element, desc, remove, add) {
+      $(element).find(desc).first().removeClass(remove).addClass(add);
+    }
+
     // Chooses another video different than the one currently playing
     function _refresh() {
         var v = videos.filter(function(video) {
@@ -62,51 +67,47 @@ $(function() {
         _selectVideo(v);
 
         // Reset the mute button
-        $('#mute')[0].children[0].className = 'glyphicon glyphicon-volume-up';
-        muted = false;
+        _mute(true);
         // Reset the pause button
-        $('#pause')[0].children[0].className = 'glyphicon glyphicon-pause';
-        paused = false;
+        _pause(false);
     }
 
     // Mutes the audio on the video
-    function _mute() {
-        var mute = $('#mute')[0];
-        if(muted === true){
+    function _mute(isMuted) {
+        if (isMuted) {
             // Unmute the Video
             player.api('setVolume', 1);
-            mute.children[0].className = 'glyphicon glyphicon-volume-up';
-            muted = false;
-        }
-        else {
+            _toggleClass('#mute', 'span', 'glyphicon-volume-off', 'glyphicon-volume-up');
+        } else {
             // Mute the Video
             player.api('setVolume', 0);
-            mute.children[0].className = 'glyphicon glyphicon-volume-off';
-            muted = true;
+            _toggleClass('#mute', 'span', 'glyphicon-volume-up', 'glyphicon-volume-off');
         }
+        muted = !muted;
     }
 
     // Pauses the video
-    function _pause() {
-        var pause = $('#pause')[0];
-        if(paused === true){
-            // Play the video
-            player.api('play');
-            pause.children[0].className = "glyphicon glyphicon-pause";
-            paused = false;
-        }
-        else {
+    function _pause(isPlaying) {
+        if (isPlaying) {
             // Pause the video
             player.api('pause');
-            pause.children[0].className = "glyphicon glyphicon-play";
-            paused = true;
+            _toggleClass('#pause', 'span', 'glyphicon-pause', 'glyphicon-play');
+        } else {
+            // Play the video
+            player.api('play');
+            _toggleClass('#pause', 'span', 'glyphicon-play', 'glyphicon-pause');
         }
+        playing = !playing;
     }
 
     _selectVideo(videos);
     $('#refresh').click(_refresh);
-    $('#mute').click(_mute);
-    $('#pause').click(_pause);
+    $('#mute').click(function() {
+        _mute(muted);
+    });
+    $('#pause').click(function() {
+        _pause(playing);
+    });
 });
 
 (function(global) {
