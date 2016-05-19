@@ -1,11 +1,38 @@
-$(function(){
+$(function() {
     // Vimeo Video Ids
     var videos = [
-        103595267, // The Asteroids Galaxy Tour - My Club
-        25049692,  // Metronomy - The Bay
-        85104634,  // Vance Joy - Riptide
-        53434339,  // Tame Impala - Feels Like We Only Go Backwards
-        85847275   // The Peach Kings - Be Around
+        {
+          id: 103595267, // The Asteroids Galaxy Tour - My Club
+          start: 0
+        },
+        {
+          id: 42444425,  // The Asteroids Galaxy Tour - Major
+          start: 0
+        },
+        {
+          id: 34836200,  // The Asteroids Galaxy Tour - Heart Attack
+          start: 0
+        },
+        {
+          id: 25049692,  // Metronomy - The Bay
+          start: 0
+        },
+        {
+          id: 85104634,  // Vance Joy - Riptide
+          start: 0
+        },
+        {
+          id: 53434339,  // Tame Impala - Feels Like We Only Go Backwards
+          start: 0
+        },
+        {
+          id: 147173661, // Tame Impala - The Less I Know The Better
+          start: 0
+        },
+        {
+          id: 85847275,  // The Peach Kings - Be Around
+          start: 0
+        }
     ];
 
     var player;
@@ -13,67 +40,63 @@ $(function(){
     var muted = false;
     var paused = false;
 
-    function _selectVideo(ids){
+    function _selectVideo(videos) {
         // Pick a random Vimeo Video Id
-        var videoId;
-        videoId = ids[Math.floor(Math.random() * ids.length)];
-        currentVideo = videoId;
+        var v = videos[Math.floor(Math.random() * videos.length)];
+        currentVideo = v;
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        videoURL = "https://player.vimeo.com/video/" + videoId + "?autoplay=1&loop=1&api=1";
-        video.src = videoURL;
+        video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1&loop=1&api=1';
 
         // Set up Vimeo API - Froogaloop
         player = $f(video);
+        player.api('seekTo', v.start);
     }
 
     // Chooses another video different than the one currently playing
-    function _refresh(){
-        var v = [];
-        for(var i = 0; i < videos.length; i++){
-            if(videos[i] !== currentVideo){
-                v.push(videos[i]);
-            }
-        }
+    function _refresh() {
+        var v = videos.filter(function(video) {
+          return video.id !== currentVideo.id;
+        });
         _selectVideo(v);
 
         // Reset the mute button
-        $('#mute')[0].children[0].className = "glyphicon glyphicon-volume-up";
+        $('#mute')[0].children[0].className = 'glyphicon glyphicon-volume-up';
         muted = false;
         // Reset the pause button
-        $('#pause')[0].children[0].className = "glyphicon glyphicon-pause";
+        $('#pause')[0].children[0].className = 'glyphicon glyphicon-pause';
         paused = false;
     }
 
     // Mutes the audio on the video
-    function _mute(){
+    function _mute() {
         var mute = $('#mute')[0];
         if(muted === true){
-            //Unmute the Video
+            // Unmute the Video
             player.api('setVolume', 1);
-            mute.children[0].className = "glyphicon glyphicon-volume-up";
+            mute.children[0].className = 'glyphicon glyphicon-volume-up';
             muted = false;
         }
-        else{
-            //Mute the Video
+        else {
+            // Mute the Video
             player.api('setVolume', 0);
-            mute.children[0].className = "glyphicon glyphicon-volume-off";
+            mute.children[0].className = 'glyphicon glyphicon-volume-off';
             muted = true;
         }
     }
 
     // Pauses the video
-    function _pause(){
+    function _pause() {
         var pause = $('#pause')[0];
         if(paused === true){
-            //Play the video
+            // Play the video
             player.api('play');
             pause.children[0].className = "glyphicon glyphicon-pause";
             paused = false;
         }
-        else{
-            //Pause the video
+        else {
+            // Pause the video
             player.api('pause');
             pause.children[0].className = "glyphicon glyphicon-play";
             paused = true;
@@ -86,7 +109,7 @@ $(function(){
     $('#pause').click(_pause);
 });
 
-(function(global){
+(function(global) {
     // Video Height & Width
     var videoHeight = 1080;
     var videoWidth = 1920;
@@ -102,10 +125,10 @@ $(function(){
 
     var documentEl = document.documentElement;
 
-    var video = document.getElementById("video-bg");
+    var video = document.getElementById('video-bg');
 
     // Resize the Video
-    function resizeVideo(){
+    function resizeVideo() {
         var width, height, scale;
         var windowWidth = documentEl.clientWidth;
         var windowHeight = documentEl.clientHeight;
@@ -132,7 +155,7 @@ $(function(){
       resizeVideo();
     }
 
-    global.addEventListener("resize", onWindowResize);
+    global.addEventListener('resize', onWindowResize);
 
     resizeVideo();
 })(window);
