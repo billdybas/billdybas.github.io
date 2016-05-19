@@ -1,38 +1,22 @@
 $(function() {
     // Vimeo Video Ids
     var videos = [
-        {
-          id: 103595267, // The Asteroids Galaxy Tour - My Club
-          start: 0
-        },
-        {
-          id: 42444425,  // The Asteroids Galaxy Tour - Major
-          start: 0
-        },
-        {
-          id: 34836200,  // The Asteroids Galaxy Tour - Heart Attack
-          start: 0
-        },
-        {
-          id: 25049692,  // Metronomy - The Bay
-          start: 0
-        },
-        {
-          id: 85104634,  // Vance Joy - Riptide
-          start: 0
-        },
-        {
-          id: 53434339,  // Tame Impala - Feels Like We Only Go Backwards
-          start: 0
-        },
-        {
-          id: 147173661, // Tame Impala - The Less I Know The Better
-          start: 80
-        },
-        {
-          id: 85847275,  // The Peach Kings - Be Around
-          start: 0
-        }
+        // The Asteroids Galaxy Tour - My Club
+        { id: 103595267, start: '' },
+        // The Asteroids Galaxy Tour - Major
+        { id: 42444425, start: '' },
+        // The Asteroids Galaxy Tour - Heart Attack
+        { id: 34836200, start: '' },
+        // Metronomy - The Bay
+        { id: 25049692, start: '2s' },
+        // Vance Joy - Riptide
+        { id: 85104634, start: '' },
+        // Tame Impala - Feels Like We Only Go Backwards
+        { id: 53434339, start: '' },
+        // Tame Impala - The Less I Know The Better
+        { id: 147173661, start: '1m20s' },
+        // The Peach Kings - Be Around
+        { id: 85847275, start: '' }
     ];
 
     var player;
@@ -47,11 +31,10 @@ $(function() {
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1&loop=1&api=1';
+        video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1&loop=1&api=1#t=' + v.start;
 
         // Set up Vimeo API - Froogaloop
         player = $f(video);
-        player.api('seekTo', v.start);
     }
 
     // Removes and Adds CSS Classes to an Element
