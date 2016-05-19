@@ -78,12 +78,13 @@ $(function() {
             // Unmute the Video
             player.api('setVolume', 1);
             _toggleClass('#mute', 'span', 'glyphicon-volume-off', 'glyphicon-volume-up');
+            muted = false;
         } else {
             // Mute the Video
             player.api('setVolume', 0);
             _toggleClass('#mute', 'span', 'glyphicon-volume-up', 'glyphicon-volume-off');
+            muted = true;
         }
-        muted = !muted;
     }
 
     // Pauses the video
@@ -92,12 +93,13 @@ $(function() {
             // Pause the video
             player.api('pause');
             _toggleClass('#pause', 'span', 'glyphicon-pause', 'glyphicon-play');
+            playing = false;
         } else {
             // Play the video
             player.api('play');
             _toggleClass('#pause', 'span', 'glyphicon-play', 'glyphicon-pause');
+            playing = true;
         }
-        playing = !playing;
     }
 
     _selectVideo(videos);
