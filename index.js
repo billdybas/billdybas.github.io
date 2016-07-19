@@ -16,7 +16,17 @@ $(function() {
         // Tame Impala - The Less I Know The Better
         { id: 147173661, start: '1m20s' },
         // The Peach Kings - Be Around
-        { id: 85847275, start: '' }
+        { id: 85847275, start: '' },
+        // Yelle - Que veux-tu
+        { id: 20535037, start: '4m20s' },
+        // Yelle - Complètement Fou!
+        { id: 106872929, start: '' },
+        // DJ Fresh x High Contrast feat. Dizzee Rascal - How Love Begins
+        { id: 149666793, start: '' },
+        // The Paper Kites - Young
+        { id: 76253725, start: '7s' },
+        // Kishi Bashi - Philosophize in It! Chemicalize with It!
+        { id: 89711963, start: '' }
     ];
 
     var player;
