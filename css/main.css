@@ -32,14 +32,6 @@ h1, h2, h3, p {
     text-align: center;
 }
 
-.rit {
-    color: #FF7A20;
-}
-
-.rit:visited {
-    color: #000;
-}
-
 .box a {
     color: #ff6175;
     font-family: "Courgette", cursive;
@@ -48,11 +40,47 @@ h1, h2, h3, p {
     text-decoration: underline;
 }
 
+.orange,
+.orange:visited {
+    color: rgb(255, 122, 32);
+}
+
+.orange:hover {
+    color: rgba(255, 122, 32, 0.5);
+}
+
+.light-blue,
+.light-blue:visited {
+    color: rgb(32, 174, 236);
+}
+
+.light-blue:hover {
+    color: rgba(32, 174, 236, 0.5);
+}
+
+.dark-blue,
+.dark-blue:visited {
+    color: rgb(17, 90, 152);
+}
+
+.dark-blue:hover {
+    color: rgba(17, 90, 152, 0.5);
+}
+
+.red,
+.red:visited {
+    color: rgb(223, 48, 43);
+}
+
+.red:hover {
+    color: rgba(223, 48, 43, 0.5);
+}
+
 
 /* POSITION */
 
 .title {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 .box {
@@ -60,10 +88,10 @@ h1, h2, h3, p {
 }
 
 .box p {
-    padding: 0 0 1.5em 0;
     display: block;
     margin: 0 auto;
     max-width: 75%;
+    padding: 0 0 1.5em 0;
 }
 
 .box-links {
@@ -79,9 +107,9 @@ h1, h2, h3, p {
 
 .img-md {
     display: block;
+    height: 200px;
     margin: 0 auto;
     width: 200px;
-    height: 200px;
 }
 
 .rounded {
@@ -96,36 +124,36 @@ h1, h2, h3, p {
 /* FOOTER */
 
 html {
-  height: 100%;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-    position: relative;
     margin: 0;
-    padding-bottom: 6em;
     min-height: 100%;
+    padding-bottom: 6em;
+    position: relative;
 }
 
 footer {
-    position: absolute;
-    right: 0;
+    background-color: #ff6175;
     bottom: 0;
     left: 0;
     padding: 1em;
-    background-color: #ff6175;
+    position: absolute;
+    right: 0;
 }
 
 footer ul {
     list-style: none;
-    text-align: center;
     padding: 0;
+    text-align: center;
 }
 
 footer li {
@@ -136,6 +164,12 @@ footer li {
 footer a,
 footer a:hover,
 footer a:visited {
-    font-size: 1.15em;
     color: #fff;
+    font-size: 1.15em;
+}
+
+.something-went-terribly-wrong {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2em;
 }
