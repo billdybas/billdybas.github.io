@@ -23,8 +23,6 @@ $(function() {
         { id: 106872929, start: '' },
         // DJ Fresh x High Contrast feat. Dizzee Rascal - How Love Begins
         { id: 149666793, start: '' },
-        // The Paper Kites - Young
-        { id: 76253725, start: '7s' },
         // Kishi Bashi - Philosophize in It! Chemicalize with It!
         { id: 89711963, start: '' }
     ];
