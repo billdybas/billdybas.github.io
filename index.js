@@ -28,14 +28,14 @@ $(function() {
     ];
 
     var player;
-    var currentVideo;
+    var history = [];
     var muted = false;
     var playing = true;
 
     function _selectVideo(videos) {
         // Pick a random Vimeo Video Id
         var v = videos[Math.floor(Math.random() * videos.length)];
-        currentVideo = v;
+        history.push(v.id);
 
         // Set the Video
         var video = document.getElementById('video-bg');
@@ -47,13 +47,16 @@ $(function() {
 
     // Removes and Adds CSS Classes to an Element
     function _toggleClass(element, desc, remove, add) {
-      $(element).find(desc).first().removeClass(remove).addClass(add);
+        $(element).find(desc).first().removeClass(remove).addClass(add);
     }
 
-    // Chooses another video different than the one currently playing
+    // Chooses another video that hasn't been played
     function _refresh() {
+        if (history.length === videos.length) {
+            history = [];
+        }
         var v = videos.filter(function(video) {
-          return video.id !== currentVideo.id;
+            return $.inArray(video.id, history) === -1;
         });
         _selectVideo(v);
 
@@ -146,7 +149,7 @@ $(function() {
     }
 
     function onWindowResize() {
-      resizeVideo();
+        resizeVideo();
     }
 
     global.addEventListener('resize', onWindowResize);
