@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
+@import 'color';
 
 /* FONTS */
 
@@ -39,43 +40,6 @@ h1, h2, h3, p {
     font-weight: 400;
     text-decoration: underline;
 }
-
-.orange,
-.orange:visited {
-    color: rgb(255, 122, 32);
-}
-
-.orange:hover {
-    color: rgba(255, 122, 32, 0.5);
-}
-
-.light-blue,
-.light-blue:visited {
-    color: rgb(32, 174, 236);
-}
-
-.light-blue:hover {
-    color: rgba(32, 174, 236, 0.5);
-}
-
-.dark-blue,
-.dark-blue:visited {
-    color: rgb(17, 90, 152);
-}
-
-.dark-blue:hover {
-    color: rgba(17, 90, 152, 0.5);
-}
-
-.red,
-.red:visited {
-    color: rgb(223, 48, 43);
-}
-
-.red:hover {
-    color: rgba(223, 48, 43, 0.5);
-}
-
 
 /* POSITION */
 
@@ -120,7 +84,6 @@ h1, h2, h3, p {
     display: none;
 }
 
-
 /* FOOTER */
 
 html {
@@ -148,24 +111,22 @@ footer {
     padding: 1em;
     position: absolute;
     right: 0;
-}
 
-footer ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
+    ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
 
-footer li {
-    display: inline-block;
-    padding: 10px 10px;
-}
+    li {
+        display: inline-block;
+        padding: 10px 10px;
+    }
 
-footer a,
-footer a:hover,
-footer a:visited {
-    color: #fff;
-    font-size: 1.15em;
+    a, a:hover, a:visited {
+        color: #fff;
+        font-size: 1.15em;
+    }
 }
 
 .something-went-terribly-wrong {

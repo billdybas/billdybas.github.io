@@ -1,0 +1,43 @@
+.orange {
+    color: rgb(255, 122, 32);
+
+    &:visited {
+        color: rgb(255, 122, 32);
+    }
+    &:hover {
+        color: rgba(255, 122, 32, 0.5);
+    }
+}
+
+.light-blue {
+    color: rgb(32, 174, 236);
+
+    &:visited {
+        color: rgb(32, 174, 236);
+    }
+    &:hover {
+        color: rgba(32, 174, 236, 0.5);
+    }
+}
+
+.dark-blue {
+    color: rgb(17, 90, 152);
+
+    &:visited {
+        color: rgb(17, 90, 152);
+    }
+    &:hover {
+        color: rgba(17, 90, 152, 0.5);
+    }
+}
+
+.red {
+    color: rgb(223, 48, 43);
+
+    &:visited {
+      color: rgb(223, 48, 43);
+    }
+    &:hover {
+      color: rgba(223, 48, 43, 0.5);
+    }
+}

@@ -22,12 +22,10 @@ li {
     font-size: 1.25em;
     font-weight: 400;
     list-style: none;
-}
 
-li a,
-li a:hover,
-li a:visited {
-    color: #fff;
+    a, a:hover, a:visited {
+        color: #fff;
+    }
 }
 
 /* CONTENT SECTION */
@@ -49,18 +47,17 @@ li a:visited {
     margin: 0 auto;
     max-width: 33.3333%;
     padding: 0 0;
-}
 
-.navigation li {
-    display: inline-block;
-    margin: 0.5em 0.5em;
-    padding: 0.5em;
-}
+    li {
+        display: inline-block;
+        margin: 0.5em 0.5em;
+        padding: 0.5em;
 
-.navigation li a {
-    padding: 0.5em;
+        a {
+            padding: 0.5em;
+        }
+    }
 }
-
 
 /* VIDEO BACKGROUND */
 
@@ -99,12 +96,10 @@ li a:visited {
     background-color: rgba(255,255,255,0.5);
     bottom: 2em;
     position: fixed;
-}
 
-#pause:hover,
-#mute:hover,
-#refresh:hover {
-    background-color: rgba(255,255,255,0.9);
+    &:hover {
+        background-color: rgba(255,255,255,0.9);
+    }
 }
 
 #pause {
