@@ -9,16 +9,18 @@
   <body>
     <div class="overlay"></div>
     <iframe id="video-bg" frameborder="0"></iframe>
-    <button id="pause" class="btn btn-md" aria-label="Pause">
-      <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-    </button>
-    <button id="mute" class="btn btn-md" aria-label="Mute">
-      <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
-    </button>
-    <button id="refresh" class="btn btn-md" aria-label="Refresh">
-      <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-    </button>
-    <div class="contain">
+    <section>
+      <button id="pause" class="btn btn-md" aria-label="Pause" title="Pause">
+        <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+      </button>
+      <button id="mute" class="btn btn-md" aria-label="Mute" title="Mute">
+        <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+      </button>
+      <button id="refresh" class="btn btn-md" aria-label="New Video" title="New Video">
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+      </button>
+    </section>
+    <main class="contain">
       <div class="content">
         <h1>Bill Dybas</h1>
         <h3>"Software Engineer"</h3>
@@ -27,7 +29,7 @@
           <li><a href="projects/">Projects</a></li>
         </ul>
       </div>
-    </div>
+    </main>
     <script src="//code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
     <script src="index.js"></script>

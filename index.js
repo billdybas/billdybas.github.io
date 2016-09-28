@@ -29,8 +29,19 @@ $(function() {
 
     var player;
     var history = [];
-    var muted = false;
-    var playing = true;
+    var state = {
+      muted: false,
+      playing: true
+    };
+
+    function _setState(prop, value) {
+        state[prop] = value;
+    }
+
+    // Removes and Adds CSS Classes to an Element
+    function _toggleClass($element, remove, add) {
+        $element.removeClass(remove).addClass(add);
+    }
 
     function _selectVideo(videos) {
         // Pick a random Vimeo Video Id
@@ -39,15 +50,10 @@ $(function() {
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1&loop=1&api=1#t=' + v.start;
+        video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1&loop=1&api=1' + (v.start ? '#t=' + v.start : '');
 
         // Set up Vimeo API - Froogaloop
         player = $f(video);
-    }
-
-    // Removes and Adds CSS Classes to an Element
-    function _toggleClass(element, desc, remove, add) {
-        $(element).find(desc).first().removeClass(remove).addClass(add);
     }
 
     // Chooses another video that hasn't been played
@@ -68,41 +74,51 @@ $(function() {
 
     // Mutes the audio on the video
     function _mute(isMuted) {
+        var $elem = $('#mute');
         if (isMuted) {
             // Unmute the Video
             player.api('setVolume', 1);
-            _toggleClass('#mute', 'span', 'glyphicon-volume-off', 'glyphicon-volume-up');
-            muted = false;
+            _toggleClass($elem.find('span'), 'glyphicon-volume-off', 'glyphicon-volume-up');
+            $elem.attr('title', 'Mute');
+            $elem.attr('aria-label', 'Mute');
+            _setState('muted', false);
         } else {
             // Mute the Video
             player.api('setVolume', 0);
-            _toggleClass('#mute', 'span', 'glyphicon-volume-up', 'glyphicon-volume-off');
-            muted = true;
+            _toggleClass($elem.find('span'), 'glyphicon-volume-up', 'glyphicon-volume-off');
+            $elem.attr('title', 'Unmute');
+            $elem.attr('aria-label', 'Unmute');
+            _setState('muted', true);
         }
     }
 
     // Pauses the video
     function _pause(isPlaying) {
+        var $elem = $('#pause');
         if (isPlaying) {
             // Pause the video
             player.api('pause');
-            _toggleClass('#pause', 'span', 'glyphicon-pause', 'glyphicon-play');
-            playing = false;
+            _toggleClass($elem.find('span'), 'glyphicon-pause', 'glyphicon-play');
+            $elem.attr('title', 'Play');
+            $elem.attr('aria-label', 'Play');
+            _setState('playing', false);
         } else {
             // Play the video
             player.api('play');
-            _toggleClass('#pause', 'span', 'glyphicon-play', 'glyphicon-pause');
-            playing = true;
+            _toggleClass($elem.find('span'), 'glyphicon-play', 'glyphicon-pause');
+            $elem.attr('title', 'Pause');
+            $elem.attr('aria-label', 'Pause');
+            _setState('playing', true);
         }
     }
 
     _selectVideo(videos);
     $('#refresh').click(_refresh);
     $('#mute').click(function() {
-        _mute(muted);
+        _mute(state.muted);
     });
     $('#pause').click(function() {
-        _pause(playing);
+        _pause(state.playing);
     });
 });
 
