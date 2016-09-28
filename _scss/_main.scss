@@ -62,11 +62,24 @@ h1, h2, h3, p {
     list-style: none;
     padding: 0 0 1em 0;
     text-align: center;
+
+    li {
+        display: inline-block;
+        padding: 0 1em;
+    }
 }
 
-.box-links li {
-    display: inline-block;
-    padding: 0 1em;
+.social-icons {
+    margin-top: 50px;
+    text-align: center;
+
+    img {
+        margin: 5px;
+    }
+
+    a:hover {
+      cursor: pointer;
+    }
 }
 
 .img-md {
@@ -74,6 +87,11 @@ h1, h2, h3, p {
     height: 200px;
     margin: 0 auto;
     width: 200px;
+}
+
+.img-sm {
+    height: 50px;
+    width: 50px;
 }
 
 .rounded {
