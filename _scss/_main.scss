@@ -52,7 +52,7 @@ h1, h2, h3, p {
     padding: 0;
 }
 
-@media only screen and (min-width : 480px) {
+@media only screen and (min-width : 768px) {
     .box:nth-of-type(odd) {
         clear: both;
     }
@@ -62,7 +62,11 @@ h1, h2, h3, p {
     }
 }
 
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : 992px) {
+    .box:nth-of-type(odd) {
+        clear: none;
+    }
+    
     .box:nth-of-type(3n+1) {
         clear: both;
     }
