@@ -1,30 +1,35 @@
 @import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
 
+$white: #fff;
+$black: #000;
+$pink: #fdafb1;
+$clear: rgba(255,255,255,0);
+
 /* FONTS */
 
 h1 {
-    color: #fff;
+    color: $white;
     font-family: "Muli", sans-serif;
     font-size: 3em;
     font-weight: 400;
 }
 
 h3 {
-    color: #fff;
+    color: $pink;
     font-family: "Courgette", cursive;
     font-size: 2em;
     font-weight: 400;
 }
 
 li {
-    color: #fff;
+    color: $black;
     font-family: "Muli", sans-serif;
     font-size: 1.25em;
     font-weight: 400;
     list-style: none;
 
     a, a:hover, a:visited {
-        color: #fff;
+        color: $black;
     }
 }
 
@@ -43,9 +48,10 @@ li {
 }
 
 .navigation {
-    border-top: 0.25em solid #fff;
-    margin: 0 auto;
-    max-width: 33.3333%;
+    background-color: $white;
+    box-shadow: 7px 7px 0px $pink;
+    margin: 75px auto 0;
+    max-width: 50%;
     padding: 0 0;
 
     li {
@@ -65,20 +71,13 @@ li {
     left: 50%;
     position: fixed;
     top: 50%;
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    -moz-transition: opacity 1200ms ease 800ms;
-    -o-transition: opacity 1200ms ease 800ms;
-    -webkit-transition: opacity 1200ms ease 800ms;
     transition: opacity 1200ms ease 800ms;
     z-index: -100;
 }
 
 .overlay {
-    background-color: rgba(255,255,255,0);
+    background-color: $clear;
     left: 0;
     min-width: 100%;
     min-height: 100%;
@@ -90,28 +89,51 @@ li {
 
 /* BUTTONS */
 
-#pause,
-#mute,
-#refresh {
-    background-color: rgba(255,255,255,0.5);
-    bottom: 2em;
+.controls {
+    bottom: 3em;
+    margin-right: 5em;
     position: fixed;
+    right: 0;
+    text-align: right;
 
-    &:hover {
-        background-color: rgba(255,255,255,0.9);
+    button {
+        border: 1px solid $pink;
+        border-radius: 0;
+        background-color: $white;
+        position: relative;
+
+        &:not(:last-child) {
+            margin-right: 1.25em;
+        }
+
+        &:before {
+            background-color: $pink;
+            content: "";
+            display: block;
+            height: 2em;
+            overflow: hidden;
+            position: absolute;
+            right: -0.75em;
+            top: 1em;
+            width: 2em;
+            z-index: -1;
+        }
+
+        &:focus {
+          outline: 0;
+        }
+
+        &:hover {
+            background-color: $pink;
+            border: 1px solid $white;
+            transform: translate(.3125rem, .3125rem);
+            transform-style: preserve-3d;
+
+            &:before {
+              transform: translate3d(-.3125rem, -.3125rem, -1em);
+            }
+        }
     }
-}
-
-#pause {
-    right: 2em;
-}
-
-#mute {
-    right: 5.5em;
-}
-
-#refresh {
-    right: 9em;
 }
 
 .glyphicon {
