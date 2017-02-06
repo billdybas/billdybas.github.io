@@ -1,31 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
+@import 'variables';
 @import 'color';
 
 /* FONTS */
 
 h1 {
-    color: #ff6175;
+    color: $pink;
     font-family: "Courgette", cursive;
     font-size: 4em;
     font-weight: 400;
 }
 
 h2 {
-    color: #73c9ce;
+    color: $light-blue;
     font-family: "Muli", sans-serif;
     font-size: 2em;
     font-weight: 400;
 }
 
 h3 {
-    color: #73c9ce;
+    color: $black;
     font-family: "Muli", sans-serif;
     font-size: 1.5em;
     font-weight: 400;
 }
 
 p {
-    color: #2a3232;
+    color: $grey;
     font-size: 1.15em;
 }
 
@@ -34,7 +35,7 @@ h1, h2, h3, p {
 }
 
 .box a {
-    color: #ff6175;
+    color: $pink;
     font-family: "Courgette", cursive;
     font-size: 1.25em;
     font-weight: 400;
@@ -44,7 +45,7 @@ h1, h2, h3, p {
 /* POSITION */
 
 .title {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .box {
@@ -144,7 +145,7 @@ body {
 }
 
 footer {
-    background-color: #ff6175;
+    background-color: $pink;
     bottom: 0;
     left: 0;
     padding: 1em;
@@ -163,7 +164,7 @@ footer {
     }
 
     a, a:hover, a:visited {
-        color: #fff;
+        color: $white;
         font-size: 1.15em;
     }
 }
