@@ -1,6 +1,6 @@
-[submodule "projects/clock"]
+[submodule "work/clock"]
 	path = work/clock
 	url = https://github.com/BillDybas/PictureClock
-[submodule "projects/showcase"]
+[submodule "work/showcase"]
 	path = work/showcase
 	url = https://github.com/BillDybas/SimpleShowcase
