@@ -24,7 +24,15 @@ $(function() {
         // DJ Fresh x High Contrast feat. Dizzee Rascal - How Love Begins
         { id: 149666793, start: '' },
         // Kishi Bashi - Philosophize in It! Chemicalize with It!
-        { id: 89711963, start: '' }
+        { id: 89711963, start: '' },
+        // Saint Motel - Move
+        { id: 190972242, start: '' },
+        // JR JR - Gone
+        { id: 136337308, start: '' },
+        // Miami Horror feat. Kimbra - I Look to You
+        { id: 14375063, start: '' },
+        // Sylvan Esso - Radio
+        { id: 180576620, start: '' }
     ];
 
     var player;
