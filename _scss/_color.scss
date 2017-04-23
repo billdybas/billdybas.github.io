@@ -35,9 +35,42 @@
     color: $red;
 
     &:visited {
-      color: $red;
+        color: $red;
     }
     &:hover {
-      color: $red-lighter;
+        color: $red-lighter;
+    }
+}
+
+.green {
+    color: $green;
+
+    &:visited {
+        color: $green;
+    }
+    &:hover {
+        color: $green-lighter;
+    }
+}
+
+.pink {
+    color: $pink;
+
+    &:visited {
+        color: $pink;
+    }
+    &:hover {
+        color: $pink-lighter;
+    }
+}
+
+.brown {
+    color: $brown;
+
+    &:visited {
+        color: $brown;
+    }
+    &:hover {
+        color: $brown-lighter;
     }
 }
