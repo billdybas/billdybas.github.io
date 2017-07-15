@@ -8,17 +8,17 @@ $(function() {
         // The Asteroids Galaxy Tour - Heart Attack
         { id: 34836200, start: '' },
         // Metronomy - The Bay
-        { id: 25049692, start: '2s' },
+        { id: 25049692, start: '2s', start_seconds: 2 },
         // Vance Joy - Riptide
         { id: 85104634, start: '' },
         // Tame Impala - Feels Like We Only Go Backwards
         { id: 53434339, start: '' },
         // Tame Impala - The Less I Know The Better
-        { id: 147173661, start: '1m20s' },
+        { id: 147173661, start: '1m20s', start_seconds: 80 },
         // The Peach Kings - Be Around
         { id: 85847275, start: '' },
         // Yelle - Que veux-tu
-        { id: 20535037, start: '4m20s' },
+        { id: 20535037, start: '4m20s', start_seconds: 260 },
         // Yelle - Complètement Fou!
         { id: 106872929, start: '' },
         // DJ Fresh x High Contrast feat. Dizzee Rascal - How Love Begins
@@ -58,10 +58,40 @@ $(function() {
 
         // Set the Video
         var video = document.getElementById('video-bg');
-        video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1&loop=1&api=1' + (v.start ? '#t=' + v.start : '');
 
-        // Set up Vimeo API - Froogaloop
-        player = $f(video);
+        if (!player) {
+          video.src = 'https://player.vimeo.com/video/' + v.id + '?autoplay=1' + (v.start ? '#t=' + v.start : '');
+
+          // Set up Vimeo API - Player.js
+          player = new Vimeo.Player(video);
+        } else {
+          // Seeking isn't guaranteed to go to the time desired
+          // (usually on longer videos), so keep trying to seek
+          // to that time until we're there
+          function seek(to) {
+            player.setCurrentTime(to).then(function(time) {
+              if (time < to) {
+                seek(to);
+              }
+            });
+          }
+
+          // If we've already set the iframe's src property,
+          // setting it again will break all event-listeners,
+          // so we have to choose a new video through player.js
+          // See: https://github.com/vimeo/player.js/issues/7
+          player.loadVideo(v.id).then(function() {
+            // The player doesn't seem to respect the 'autoplay' param on
+            // subsequent videos, so we have to manually start these videos.
+            // See: https://github.com/vimeo/player.js/issues/116
+            // See: https://github.com/vimeo/player.js/issues/71
+            player.play().then(function() {
+              if (v.start_seconds) {
+                seek(v.start_seconds)
+              }
+            });
+          });
+        }
     }
 
     // Chooses another video that hasn't been played
@@ -85,18 +115,20 @@ $(function() {
         var $elem = $('#mute');
         if (isMuted) {
             // Unmute the Video
-            player.api('setVolume', 1);
-            _toggleClass($elem.find('span'), 'glyphicon-volume-off', 'glyphicon-volume-up');
-            $elem.attr('title', 'Mute');
-            $elem.attr('aria-label', 'Mute');
-            _setState('muted', false);
+            player.setVolume(1).then(function() {
+              _toggleClass($elem.find('span'), 'glyphicon-volume-off', 'glyphicon-volume-up');
+              $elem.attr('title', 'Mute');
+              $elem.attr('aria-label', 'Mute');
+              _setState('muted', false);
+            });
         } else {
             // Mute the Video
-            player.api('setVolume', 0);
-            _toggleClass($elem.find('span'), 'glyphicon-volume-up', 'glyphicon-volume-off');
-            $elem.attr('title', 'Unmute');
-            $elem.attr('aria-label', 'Unmute');
-            _setState('muted', true);
+            player.setVolume(0).then(function() {
+              _toggleClass($elem.find('span'), 'glyphicon-volume-up', 'glyphicon-volume-off');
+              $elem.attr('title', 'Unmute');
+              $elem.attr('aria-label', 'Unmute');
+              _setState('muted', true);
+            });
         }
     }
 
@@ -105,18 +137,20 @@ $(function() {
         var $elem = $('#pause');
         if (isPlaying) {
             // Pause the video
-            player.api('pause');
-            _toggleClass($elem.find('span'), 'glyphicon-pause', 'glyphicon-play');
-            $elem.attr('title', 'Play');
-            $elem.attr('aria-label', 'Play');
-            _setState('playing', false);
+            player.pause().then(function() {
+              _toggleClass($elem.find('span'), 'glyphicon-pause', 'glyphicon-play');
+              $elem.attr('title', 'Play');
+              $elem.attr('aria-label', 'Play');
+              _setState('playing', false);
+            });
         } else {
             // Play the video
-            player.api('play');
-            _toggleClass($elem.find('span'), 'glyphicon-play', 'glyphicon-pause');
-            $elem.attr('title', 'Pause');
-            $elem.attr('aria-label', 'Pause');
-            _setState('playing', true);
+            player.play().then(function() {
+              _toggleClass($elem.find('span'), 'glyphicon-play', 'glyphicon-pause');
+              $elem.attr('title', 'Pause');
+              $elem.attr('aria-label', 'Pause');
+              _setState('playing', true);
+            });
         }
     }
 
@@ -128,6 +162,7 @@ $(function() {
     $('#pause').click(function() {
         _pause(state.playing);
     });
+    player.on('ended', _refresh);
 });
 
 (function(global) {
