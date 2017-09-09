@@ -7,16 +7,16 @@ $(function() {
         { id: 42444425, start: '' },
         // The Asteroids Galaxy Tour - Heart Attack
         { id: 34836200, start: '' },
-        // Metronomy - The Bay
-        { id: 25049692, start: '2s', start_seconds: 2 },
+        // Alvvays - In Undertow
+        { id: 228872906, start: '' },
         // Vance Joy - Riptide
         { id: 85104634, start: '' },
         // Tame Impala - Feels Like We Only Go Backwards
         { id: 53434339, start: '' },
         // Tame Impala - The Less I Know The Better
         { id: 147173661, start: '1m20s', start_seconds: 80 },
-        // The Peach Kings - Be Around
-        { id: 85847275, start: '' },
+        // Washed Out - Floating By
+        { id: 223810249, start: '' },
         // Yelle - Que veux-tu
         { id: 20535037, start: '4m20s', start_seconds: 260 },
         // Yelle - Complètement Fou!
