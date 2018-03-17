@@ -115,10 +115,6 @@ li {
             z-index: -1;
         }
 
-        &:focus {
-          outline: 0;
-        }
-
         &:hover {
             background-color: $pink;
             border: 1px solid $white;
