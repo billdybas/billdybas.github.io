@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
+@import url(https://fonts.googleapis.com/css?family=Carter+One|Muli);
 @import 'variables';
 
 /* FONTS */
@@ -6,15 +6,16 @@
 h1 {
     color: $white;
     font-family: "Muli", sans-serif;
-    font-size: 3em;
+    font-size: 4em;
     font-weight: 400;
 }
 
 h3 {
     color: $pink;
-    font-family: "Courgette", cursive;
+    font-family: "Carter One", cursive;
     font-size: 2em;
     font-weight: 400;
+    letter-spacing: 1px;
 }
 
 li {
@@ -33,7 +34,7 @@ li {
 
 .contain {
     position: absolute;
-    top: 20%;
+    top: 25%;
     width: 100%;
 }
 

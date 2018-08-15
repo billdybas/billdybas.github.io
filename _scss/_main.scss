@@ -1,134 +1,48 @@
-@import url(https://fonts.googleapis.com/css?family=Courgette|Muli);
+@import url(https://fonts.googleapis.com/css?family=Carter+One|Muli);
 @import 'variables';
 @import 'color';
 
 /* FONTS */
 
 h1 {
-    color: $pink;
-    font-family: "Courgette", cursive;
+    color: $mediumslateblue;
+    font-family: "Carter One", cursive;
     font-size: 4em;
     font-weight: 400;
 }
 
-h2, h3, h4 {
+h3 {
     font-family: "Muli", sans-serif;
     font-weight: 400;
 }
 
-h2 {
-    color: $light-blue;
-    font-size: 2em;
-}
-
 h3 {
     color: $black;
-    font-size: 1.5em;
+    font-size: 1.65em;
 }
 
-h4 {
-    color: $black;
-    font-size: 1em;
-}
-
-p {
-    color: $grey;
-    font-size: 1.15em;
-}
-
-h1, h2, h3, h4, p {
-    text-align: center;
-}
-
-.box a {
-    color: $pink;
-    font-family: "Courgette", cursive;
-    font-size: 1.25em;
-    font-weight: 400;
+a {
+    color: $mediumslateblue;
     text-decoration: underline;
+
+    &:visited {
+        color: $mediumslateblue;
+    }
+    &:hover {
+        color: lighten($mediumslateblue, 10);
+    }
+}
+
+.about h3 {
+    line-height: 2;
+    text-align: left;
 }
 
 /* POSITION */
 
 .title {
-    margin-bottom: 1em;
-}
-
-.box {
-    clear: none;
-    padding: 0;
-}
-
-@media only screen and (min-width : 768px) {
-    .box:nth-of-type(odd) {
-        clear: both;
-    }
-
-    .box:nth-of-type(even) {
-        clear: none;
-    }
-}
-
-@media only screen and (min-width : 992px) {
-    .box:nth-of-type(odd) {
-        clear: none;
-    }
-
-    .box:nth-of-type(3n+1) {
-        clear: both;
-    }
-}
-
-.box p {
-    display: block;
-    margin: 0 auto;
-    max-width: 75%;
-    padding: 0 0 1.5em 0;
-}
-
-.box-links {
-    list-style: none;
-    padding: 0 0 1em 0;
-    text-align: center;
-
-    li {
-        display: inline-block;
-        padding: 0 1em;
-    }
-}
-
-.social-icons {
-    margin-bottom: 25px;
-    margin-top: 25px;
-    text-align: center;
-
-    img {
-        margin: 5px;
-    }
-
-    a:hover {
-      cursor: pointer;
-    }
-}
-
-.img-md {
-    display: block;
-    height: 200px;
-    margin: 0 auto;
-    width: 200px;
-}
-
-.img-sm {
-    height: 50px;
-    width: 50px;
-}
-
-.rounded {
-    border-radius: 5%;
-}
-
-.hidden {
-    display: none;
+    margin-top: 2em;
+    padding-left: 15px;
 }
 
 /* FOOTER */
@@ -152,7 +66,7 @@ body {
 }
 
 footer {
-    background-color: $pink;
+    background-color: $mediumslateblue;
     bottom: 0;
     left: 0;
     padding: 1em;
@@ -180,9 +94,4 @@ footer {
     display: block;
     margin: 0 auto;
     margin-top: 2em;
-}
-
-.about h3 {
-    line-height: 1.75;
-    text-align: left;
 }

@@ -74,3 +74,25 @@
         color: $brown-lighter;
     }
 }
+
+.l-orange {
+    color: $l-orange;
+
+    &:visited {
+        color: $l-orange;
+    }
+    &:hover {
+        color: $l-orange-lighter;
+    }
+}
+
+.s-blue {
+    color: $s-blue;
+
+    &:visited {
+        color: $s-blue;
+    }
+    &:hover {
+        color: lighten($s-blue, 10);
+    }
+}
