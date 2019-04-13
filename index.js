@@ -32,7 +32,27 @@ $(function() {
         // Miami Horror feat. Kimbra - I Look to You
         { id: 14375063, start: '' },
         // Sylvan Esso - Radio
-        { id: 180576620, start: '' }
+        { id: 180576620, start: '' },
+        // No Vacation - Yam Yam
+        { id: 324099950, start: '' },
+        // Young The Giant - Something To Believe In
+        { id: 173652088, start: '' },
+        // King Gizzard & the Lizard Wizard - Cellophane
+        { id: 141141865, start: '' },
+        // King Gizzard & The Lizard Wizard - Gamma Knife
+        { id: 157973501, start: '' },
+        // King Gizzard & The Lizard Wizard - People-Vultures
+        { id: 165739360, start: '' },
+        // Superorganism - Everybody Wants To Be Famous
+        { id: 294175600, start: '' },
+        // Superorganism - The Prawn Song 
+        { id: 294175706, start: '' },
+        // Superorganism - Night Time
+        { id: 294175660, start: '' },
+        // Animal Collective - My Girls
+        { id: 2616231, start: '' },
+        // Clairo - Flaming Hot Cheetos
+        { id: 259708050, start: '' }
     ];
 
     var player;
