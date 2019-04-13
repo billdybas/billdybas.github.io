@@ -6,7 +6,7 @@ $(function() {
         // The Asteroids Galaxy Tour - Major
         { id: 42444425, start: '' },
         // The Asteroids Galaxy Tour - Heart Attack
-        { id: 34836200, start: '' },
+        { id: 77616880, start: '' },
         // Alvvays - In Undertow
         { id: 228872906, start: '' },
         // Vance Joy - Riptide
