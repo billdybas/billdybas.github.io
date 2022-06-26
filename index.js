@@ -52,7 +52,19 @@ $(function() {
         // Animal Collective - My Girls
         { id: 2616231, start: '' },
         // Clairo - Flaming Hot Cheetos
-        { id: 259708050, start: '' }
+        { id: 259708050, start: '' },
+        // Toro y Moi – Freelance
+        { id: 289943818, start: '' },
+        // Wolf Alice - Moaning Lisa Smile
+        { id: 105535211, start: '' },
+        // Fazerdaze - Lucky Girl
+        { id: 285446548, start: '' },
+        // Fazerdaze - Little Uneasy
+        { id: 134904105, start: '' },
+        // Crumb - Locket
+        { id: 264766006, start: '' },
+        // Kelly Lee Owens - Lucid
+        { id: 118466754, start: '' }
     ];
 
     var player;
